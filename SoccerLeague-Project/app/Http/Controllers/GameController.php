@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Player;
+use App\Models\Game;
 use Illuminate\Http\Request;
 
 /**
- * Class PlayerController
+ * Class GameController
  * @package App\Http\Controllers
  */
-class PlayerController extends Controller
+class GameController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class PlayerController extends Controller
      */
     public function index()
     {
-        $players = Player::paginate();
+        $games = Game::paginate();
 
-        return view('player.index', compact('players'))
-            ->with('i', (request()->input('page', 1) - 1) * $players->perPage());
+        return view('game.index', compact('games'))
+            ->with('i', (request()->input('page', 1) - 1) * $games->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class PlayerController extends Controller
      */
     public function create()
     {
-        $player = new Player();
-        return view('player.create', compact('player'));
+        $game = new Game();
+        return view('game.create', compact('game'));
     }
 
     /**
@@ -43,12 +43,12 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Player::$rules);
+        request()->validate(Game::$rules);
 
-        $player = Player::create($request->all());
+        $game = Game::create($request->all());
 
-        return redirect()->route('players.index')
-            ->with('success', 'Player created successfully.');
+        return redirect()->route('games.index')
+            ->with('success', 'Game created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class PlayerController extends Controller
      */
     public function show($id)
     {
-        $player = Player::find($id);
+        $game = Game::find($id);
 
-        return view('player.show', compact('player'));
+        return view('game.show', compact('game'));
     }
 
     /**
@@ -72,26 +72,26 @@ class PlayerController extends Controller
      */
     public function edit($id)
     {
-        $player = Player::find($id);
+        $game = Game::find($id);
 
-        return view('player.edit', compact('player'));
+        return view('game.edit', compact('game'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Player $player
+     * @param  Game $game
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Player $player)
+    public function update(Request $request, Game $game)
     {
-        request()->validate(Player::$rules);
+        request()->validate(Game::$rules);
 
-        $player->update($request->all());
+        $game->update($request->all());
 
-        return redirect()->route('players.index')
-            ->with('success', 'Player updated successfully');
+        return redirect()->route('games.index')
+            ->with('success', 'Game updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class PlayerController extends Controller
      */
     public function destroy($id)
     {
-        $player = Player::find($id)->delete();
+        $game = Game::find($id)->delete();
 
-        return redirect()->route('players.index')
-            ->with('success', 'Player deleted successfully');
+        return redirect()->route('games.index')
+            ->with('success', 'Game deleted successfully');
     }
 }
