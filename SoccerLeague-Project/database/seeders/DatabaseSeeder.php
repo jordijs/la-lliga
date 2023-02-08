@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Team;
 use App\Models\Game;
+use App\Models\Player;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -77,6 +78,40 @@ class DatabaseSeeder extends Seeder
         $game4->goals_local = 1;
         $game4->goals_visitor = 2;
         $game4->save();
+
+        //Players
+        $player1 = new Player();
+        $player1->name = "Leo";
+        $player1->surname1 = "Messi";
+        $player1->role = "forward";
+        $player1->birthdate = "1990-02-01";
+        $player1->team_id = 1;
+        $player1->save();
+
+        $player2 = new Player();
+        $player2->name = "Iker";
+        $player2->surname1 = "Casillas";
+        $player2->role = "goalkeeper";
+        $player2->birthdate = "1987-05-15";
+        $player2->team_id = 2;
+        $player2->save();
+
+        $player3 = new Player();
+        $player3->name = "Carles";
+        $player3->surname1 = "Puyol";
+        $player3->role = "defender";
+        $player3->birthdate = "1980-12-25";
+        $player3->team_id = 1;
+        $player3->save();
+
+        $player4 = new Player();
+        $player4->name = "Carles";
+        $player4->surname1 = "Puigdemont";
+        $player4->surname2 = "Casamajó";
+        $player4->role = "defender";
+        $player4->birthdate = "1977-02-12";
+        $player4->team_id = 3;
+        $player4->save();
 
     }
 }

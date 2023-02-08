@@ -10,7 +10,14 @@ class Team extends Model
     use HasFactory;
 
     //One to Many
+    //Shows the games where the team has played
     public function games(){
         return $this->hasMany(Game::class);   }
+
+//One to Many
+    //Shows the players belonging to this team
+    public function players(){
+        return $this->hasMany(Player::class);   }
+
 }
 

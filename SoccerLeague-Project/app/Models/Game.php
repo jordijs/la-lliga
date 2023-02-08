@@ -10,7 +10,13 @@ class Game extends Model
     use HasFactory;
 
     //One to many (inverse)
-    public function team(){
-        return $this->belongsTo(Team::class);
+    //Get the Local Team for this Game
+    public function teamLocal(){
+        return $this->belongsTo(Team::class, 'team_local_id');
+    }
+
+    //Get the Visitor Team for this Game
+    public function teamVisitor(){
+        return $this->belongsTo(Team::class, 'team_visitor_id');
     }
 }
