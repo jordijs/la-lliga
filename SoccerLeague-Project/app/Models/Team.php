@@ -11,5 +11,6 @@ class Team extends Model
 
     //One to Many
     public function games(){
-        return $this->hasMany('App\Models\Game');   }
+        return $this->hasMany(Game::class);   }
 }
+

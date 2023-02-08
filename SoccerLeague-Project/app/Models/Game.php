@@ -11,6 +11,6 @@ class Game extends Model
 
     //One to many (inverse)
     public function team(){
-        return $this->belongsTo('App\Models\Team');
+        return $this->belongsTo(Team::class);
     }
 }
