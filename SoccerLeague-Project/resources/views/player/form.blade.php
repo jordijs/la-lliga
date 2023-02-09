@@ -2,38 +2,38 @@
     <div class="box-body">
         
         <div class="mb-4">
-            {{ Form::label('name') }}
+            {{ Form::label('Nom') }}
             {{ Form::text('name', $player->name, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Name']) }}
-            {!! $errors->first('name', '<div class="invalid-feedback">:message</div>') !!}
+            {!! $errors->first('name', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
         <div class="mb-4">
-            {{ Form::label('surname1') }}
+            {{ Form::label('Primer cognom') }}
             {{ Form::text('surname1', $player->surname1, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('surname1') ? ' is-invalid' : ''), 'placeholder' => 'Surname1']) }}
-            {!! $errors->first('surname1', '<div class="invalid-feedback">:message</div>') !!}
+            {!! $errors->first('surname1', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
         <div class="mb-4">
-            {{ Form::label('surname2') }}
+            {{ Form::label('Segon cognom') }}
             {{ Form::text('surname2', $player->surname2, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('surname2') ? ' is-invalid' : ''), 'placeholder' => 'Surname2']) }}
-            {!! $errors->first('surname2', '<div class="invalid-feedback">:message</div>') !!}
+            {!! $errors->first('surname2', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
         <div class="mb-4">
-            {{ Form::label('role') }}
+            {{ Form::label('Posició') }}
             {{ Form::text('role', $player->role, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('role') ? ' is-invalid' : ''), 'placeholder' => 'Role']) }}
-            {!! $errors->first('role', '<div class="invalid-feedback">:message</div>') !!}
+            {!! $errors->first('role', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
         <div class="mb-4">
-            {{ Form::label('birthdate') }}
+            {{ Form::label('Data de naixement') }}
             {{ Form::text('birthdate', $player->birthdate, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('birthdate') ? ' is-invalid' : ''), 'placeholder' => 'Birthdate']) }}
-            {!! $errors->first('birthdate', '<div class="invalid-feedback">:message</div>') !!}
+            {!! $errors->first('birthdate', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
         <div class="mb-4">
-            {{ Form::label('team_id') }}
+            {{ Form::label('Equip') }}
             {{ Form::text('team_id', $player->team_id, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('team_id') ? ' is-invalid' : ''), 'placeholder' => 'Team Id']) }}
-            {!! $errors->first('team_id', '<div class="invalid-feedback">:message</div>') !!}
+            {!! $errors->first('team_id', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-600">Submit</button>
+        <button type="submit" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-600">Crea</button>
     </div>
 </div>
