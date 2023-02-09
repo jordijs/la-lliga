@@ -3,12 +3,12 @@
         
         <div class="mb-4">
             {{ Form::label('Equip') }}
-            {{ Form::text('name', $team->name, ['class' => 'block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded' . ($errors->has('name') ? ' is-invalid' : '')]) }}
+            {{ Form::text('name', $team->name, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('name') ? ' is-invalid' : '')]) }}
             {!! $errors->first('name', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
         <div class="mb-4">
             {{ Form::label('Punts') }}
-            {{ Form::text('score', $team->score, ['class' => 'block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded' . ($errors->has('score') ? ' is-invalid' : '')]) }}
+            {{ Form::text('score', $team->score, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('score') ? ' is-invalid' : '')]) }}
             {!! $errors->first('score', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
 

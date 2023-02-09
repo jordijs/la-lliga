@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Game
+    Partits
 @endsection
 
 @section('content')
@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Game') }}
+                                {{ __('Partits') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('games.create') }}" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded  no-underline bg-blue-600 text-white hover:bg-blue-600 py-1 px-2 leading-tight text-xs  float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Nou partit ') }}
                                 </a>
                               </div>
                         </div>
@@ -30,33 +30,33 @@
                     @endif
 
                     <div class="flex-auto p-6">
-                        <div class="block w-full overflow-auto scrolling-touch">
-                            <table class="w-full max-w-full mb-4 bg-transparent table-hover">
-                                <thead class="thead">
+                        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
-                                        <th>No</th>
+                                        <th scope="col" class="px-6 py-3">Jornada</th>
                                         
-										<th>Team Local Id</th>
-										<th>Team Visitor Id</th>
-										<th>Date Time</th>
-										<th>Goals Local</th>
-										<th>Goals Visitor</th>
+										<th scope="col" class="px-6 py-3">Equip Local</th>
+										<th scope="col" class="px-6 py-3">Equip visitant</th>
+										<th scope="col" class="px-6 py-3">Data i hora</th>
+										<th scope="col" class="px-6 py-3">Gols local</th>
+										<th scope="col" class="px-6 py-3">Gols visitant</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($games as $game)
-                                        <tr  class="even:bg-blue-50 odd:bg-blue-100" >
-                                            <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $game->team_local_id }}</td>
-											<td>{{ $game->team_visitor_id }}</td>
-											<td>{{ $game->date_time }}</td>
-											<td>{{ $game->goals_local }}</td>
-											<td>{{ $game->goals_visitor }}</td>
+                                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                            <td class="px-6 py-4">{{ ++$i }}</td>
+                                                
+                                            <td class="px-6 py-4">{{ $game->team_local_id }}</td>
+                                            <td class="px-6 py-4">{{ $game->team_visitor_id }}</td>
+                                            <td class="px-6 py-4">{{ $game->date_time }}</td>
+                                            <td class="px-6 py-4">{{ $game->goals_local }}</td>
+                                            <td class="px-6 py-4">{{ $game->goals_visitor }}</td>
 
-                                            <td>
+                                            <td class="px-6 py-4">
                                                 <form action="{{ route('games.destroy',$game->id) }}" method="POST">
                                                     <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded  no-underline py-1 px-2 leading-tight text-xs  bg-blue-600 text-white hover:bg-blue-600 " href="{{ route('games.show',$game->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
                                                     <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded  no-underline py-1 px-2 leading-tight text-xs  bg-green-500 text-white hover:green-600" href="{{ route('games.edit',$game->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
