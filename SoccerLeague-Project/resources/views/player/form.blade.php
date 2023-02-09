@@ -3,32 +3,32 @@
         
         <div class="mb-4">
             {{ Form::label('Nom') }}
-            {{ Form::text('name', $player->name, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Name']) }}
+            {{ Form::text('name', $player->name, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('name') ? ' is-invalid' : '')]) }}
             {!! $errors->first('name', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
         <div class="mb-4">
             {{ Form::label('Primer cognom') }}
-            {{ Form::text('surname1', $player->surname1, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('surname1') ? ' is-invalid' : ''), 'placeholder' => 'Surname1']) }}
+            {{ Form::text('surname1', $player->surname1, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('surname1') ? ' is-invalid' : '')]) }}
             {!! $errors->first('surname1', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
         <div class="mb-4">
             {{ Form::label('Segon cognom') }}
-            {{ Form::text('surname2', $player->surname2, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('surname2') ? ' is-invalid' : ''), 'placeholder' => 'Surname2']) }}
+            {{ Form::text('surname2', $player->surname2, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('surname2') ? ' is-invalid' : '')]) }}
             {!! $errors->first('surname2', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
         <div class="mb-4">
             {{ Form::label('Posició') }}
-            {{ Form::text('role', $player->role, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('role') ? ' is-invalid' : ''), 'placeholder' => 'Role']) }}
+            {{ Form::text('role', $player->role, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('role') ? ' is-invalid' : '')]) }}
             {!! $errors->first('role', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
         <div class="mb-4">
             {{ Form::label('Data de naixement') }}
-            {{ Form::text('birthdate', $player->birthdate, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('birthdate') ? ' is-invalid' : ''), 'placeholder' => 'Birthdate']) }}
+            {{ Form::text('birthdate', $player->birthdate, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('birthdate') ? ' is-invalid' : '')]) }}
             {!! $errors->first('birthdate', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
         <div class="mb-4">
             {{ Form::label('Equip') }}
-            {{ Form::text('team_id', $player->team_id, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('team_id') ? ' is-invalid' : ''), 'placeholder' => 'Team Id']) }}
+            {{ Form::text('team_id', $player->team_id, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('team_id') ? ' is-invalid' : '')]) }}
             {!! $errors->first('team_id', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
 
