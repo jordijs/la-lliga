@@ -31,7 +31,7 @@
 
                     <div class="flex-auto p-6">
                         <div class="block w-full overflow-auto scrolling-touch">
-                            <table class="w-full max-w-full mb-4 bg-transparent table-striped table-hover">
+                            <table class="w-full max-w-full mb-4 bg-transparent table-hover">
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
@@ -47,7 +47,7 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($games as $game)
-                                        <tr>
+                                        <tr  class="even:bg-blue-50 odd:bg-blue-100" >
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $game->team_local_id }}</td>
