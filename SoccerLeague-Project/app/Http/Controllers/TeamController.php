@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
-use App\Models\Player;
 use Illuminate\Http\Request;
 
 /**
@@ -62,10 +61,7 @@ class TeamController extends Controller
     {
         $team = Team::find($id);
 
-        //$player = new Player;
-        //$playersOfTeam = $player->team();
-
-        return view('team.show');
+        return view('team.show', compact('team'));
     }
 
     /**
@@ -110,6 +106,4 @@ class TeamController extends Controller
         return redirect()->route('teams.index')
             ->with('success', 'Team deleted successfully');
     }
-
-
 }
