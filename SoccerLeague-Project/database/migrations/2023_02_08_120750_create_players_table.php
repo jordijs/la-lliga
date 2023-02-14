@@ -15,6 +15,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('players', function (Blueprint $table) {
+            $table->engine="InnoDB";
             $table->id();
             $table->string('name');
             $table->string('surname1')->nullable(true);

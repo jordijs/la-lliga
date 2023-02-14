@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('teams', function (Blueprint $table) {
+            $table->engine="InnoDB";
             $table->id();
             $table->string('name', 50);
             $table->tinyInteger('score');

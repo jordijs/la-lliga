@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Player;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 /**
@@ -32,7 +33,11 @@ class PlayerController extends Controller
     public function create()
     {
         $player = new Player();
-        return view('player.create', compact('player'));
+
+        //Getting information of the Team this Player belongs to
+        $teams = Team::pluck('name', 'id');
+
+        return view('player.create', compact('player', 'teams'));
     }
 
     /**
@@ -74,7 +79,10 @@ class PlayerController extends Controller
     {
         $player = Player::find($id);
 
-        return view('player.edit', compact('player'));
+        //Getting information of the Team this Player belongs to
+        $teams = Team::pluck('name', 'id');
+
+        return view('player.edit', compact('player', 'teams'));
     }
 
     /**

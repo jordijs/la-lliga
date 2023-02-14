@@ -41,7 +41,7 @@
 										<th>Surname2</th>
 										<th>Role</th>
 										<th>Birthdate</th>
-										<th>Team Id</th>
+										<th>Equip</th>
 
                                         <th></th>
                                     </tr>
@@ -56,7 +56,11 @@
 											<td>{{ $player->surname2 }}</td>
 											<td>{{ $player->role }}</td>
 											<td>{{ $player->birthdate }}</td>
-											<td>{{ $player->team_id }}</td>
+											<td>
+                                                
+                                                {{ $player->team->name }}
+
+                                            </td>
 
                                             <td>
                                                 <form action="{{ route('players.destroy',$player->id) }}" method="POST">

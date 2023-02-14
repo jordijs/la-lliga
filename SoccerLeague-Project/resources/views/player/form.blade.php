@@ -18,17 +18,17 @@
         </div>
         <div class="mb-4">
             {{ Form::label('Posició') }}
-            {{ Form::text('role', $player->role, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('role') ? ' is-invalid' : '')]) }}
+            {{ Form::select('role', ['goalkeeper', 'defender', 'midfielder', 'forward'], $player->role, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('role') ? ' is-invalid' : '')]) }}
             {!! $errors->first('role', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
         <div class="mb-4">
             {{ Form::label('Data de naixement') }}
-            {{ Form::text('birthdate', $player->birthdate, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('birthdate') ? ' is-invalid' : '')]) }}
+            {{ Form::date('birthdate', $player->birthdate, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('birthdate') ? ' is-invalid' : '')]) }}
             {!! $errors->first('birthdate', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
         <div class="mb-4">
             {{ Form::label('Equip') }}
-            {{ Form::text('team_id', $player->team_id, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('team_id') ? ' is-invalid' : '')]) }}
+            {{ Form::select('team_id', $teams, $player->team_id, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('team_id') ? ' is-invalid' : '')]) }}
             {!! $errors->first('team_id', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
 
