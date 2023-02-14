@@ -56,7 +56,7 @@ class Team extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function players()
+    public function playersOfTeam()
     {
         return $this->hasMany('App\Models\Player', 'team_id', 'id');
     }
