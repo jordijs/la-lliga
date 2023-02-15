@@ -49,7 +49,7 @@
                                 <tbody>
                                     @foreach ($players as $player)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td></td>
                                             
 											<td>{{ $player->name }}</td>
 											<td>{{ $player->surname1 }}</td>
@@ -78,7 +78,6 @@
                         </div>
                     </div>
                 </div>
-                {!! $players->links() !!}
             </div>
         </div>
     </div>

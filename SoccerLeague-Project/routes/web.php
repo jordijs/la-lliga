@@ -24,5 +24,6 @@ Route::get('/', function () {
 
 Route::resource('players', App\Http\Controllers\PlayerController::class);
 Route::resource('teams', App\Http\Controllers\TeamController::class);
+Route::resource('games', App\Http\Controllers\GameController::class);
 
 //Route::resource('games', GameController::class);

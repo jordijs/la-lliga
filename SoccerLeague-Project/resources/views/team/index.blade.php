@@ -34,8 +34,6 @@
                             <table class="w-full max-w-full mb-4 bg-transparent table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
 										<th>Name</th>
 										<th>Score</th>
 
@@ -45,11 +43,12 @@
                                 <tbody>
                                     @foreach ($teams as $team)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $team->name }}</td>
-											<td>{{ $team->score }}</td>
-
+											<td>
+                                                {{ $team->name }}
+                                            </td>
+											<td>
+                                                {{ $team->score }}
+                                            </td>
                                             <td>
                                                 <form action="{{ route('teams.destroy',$team->id) }}" method="POST">
                                                     <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded  no-underline py-1 px-2 leading-tight text-xs  bg-blue-600 text-white hover:bg-blue-600 " href="{{ route('teams.show',$team->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
@@ -66,7 +65,6 @@
                         </div>
                     </div>
                 </div>
-                {!! $teams->links() !!}
             </div>
         </div>
     </div>
