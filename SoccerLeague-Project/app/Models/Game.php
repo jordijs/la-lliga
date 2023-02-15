@@ -55,6 +55,5 @@ class Game extends Model
     {
         return $this->hasOne('App\Models\Team', 'id', 'team_local_id');
     }
-    
 
 }

@@ -25,21 +25,21 @@
                     <thead class="thead-nice">
                         <tr>
                             <th scope="col" class="th-nice">Local</th>
+							<th scope="col" class="th-nice">Gols</th>
 							<th scope="col" class="th-nice">Visitant</th>
-							<th scope="col" class="th-nice">Data i hora</th>
-							<th scope="col" class="th-nice">Gols local</th>
-						    <th scope="col" class="th-nice">Gols visitant</th>
+							<th scope="col" class="th-nice">Gols</th>
+						    <th scope="col" class="th-nice">Data i hora</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($games as $game)
                             <tr class="tr-nice">
-                                <td class="td-nice">{{ $game->team_local_id }}</td>
-                                <td class="td-nice">{{ $game->team_visitor_id }}</td>
-                                <td class="td-nice">{{ $game->date_time }}</td>
+                                <td class="td-nice">{{ $game->teamLocal->name }}</td>
                                 <td class="td-nice">{{ $game->goals_local }}</td>
+                                <td class="td-nice">{{ $game->teamVisitor->name }}</td>
                                 <td class="td-nice">{{ $game->goals_visitor }}</td>
+                                <td class="td-nice">{{ $gamedatetime }}</td>
                                 <td class="td-nice">
                                     <form action="{{ route('games.destroy',$game->id) }}" method="POST">
                                         <a title="Edita" class="edit-btn" href="{{ route('games.edit',$game->id) }}"><i class="fa fa-fw fa-edit"></i></a>

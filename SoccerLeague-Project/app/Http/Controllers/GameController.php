@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 /**
@@ -20,7 +21,12 @@ class GameController extends Controller
     {
         $games = Game::paginate();
 
-        return view('game.index', compact('games'));
+        $gamedatetime = Game::find('date_time');
+
+        //Getting information of the Teams the Games refer to
+        $teams = Team::pluck('name', 'id');
+
+        return view('game.index', compact('games', 'teams', 'gamedatetime'));
     }
 
     /**
