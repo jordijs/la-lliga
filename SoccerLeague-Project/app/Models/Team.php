@@ -27,8 +27,6 @@ class Team extends Model
 		'score' => 'required',
     ];
 
-    protected $perPage = 20;
-
     /**
      * Attributes that should be mass-assignable.
      *

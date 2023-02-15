@@ -20,8 +20,7 @@ class TeamController extends Controller
     {
         $teams = Team::paginate();
 
-        return view('team.index', compact('teams'))
-            ->with('i', (request()->input('page', 1) - 1) * $teams->perPage());
+        return view('team.index', compact('teams'));
     }
 
     /**

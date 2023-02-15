@@ -32,8 +32,6 @@ class Game extends Model
 		'goals_visitor' => 'required',
     ];
 
-    protected $perPage = 20;
-
     /**
      * Attributes that should be mass-assignable.
      *

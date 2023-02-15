@@ -21,8 +21,7 @@ class PlayerController extends Controller
     {
         $players = Player::paginate();
 
-        return view('player.index', compact('players'))
-            ->with('i', (request()->input('page', 1) - 1) * $players->perPage());
+        return view('player.index', compact('players'));
     }
 
     /**

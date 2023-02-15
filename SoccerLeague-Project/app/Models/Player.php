@@ -29,7 +29,6 @@ class Player extends Model
 		'team_id' => 'required',
     ];
 
-    protected $perPage = 20;
 
     /**
      * Attributes that should be mass-assignable.

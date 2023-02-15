@@ -20,8 +20,7 @@ class GameController extends Controller
     {
         $games = Game::paginate();
 
-        return view('game.index', compact('games'))
-            ->with('i', (request()->input('page', 1) - 1) * $games->perPage());
+        return view('game.index', compact('games'));
     }
 
     /**
