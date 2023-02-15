@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
+use App\Models\Player;
 use Illuminate\Http\Request;
 
 /**
@@ -60,7 +61,10 @@ class TeamController extends Controller
     {
         $team = Team::find($id);
 
-        return view('team.show', compact('team'));
+        //Getting information of the Players that belong to this Team
+        $players = Player::pluck('id', 'name', 'surname1', 'surname2', 'role', 'birthdate' );
+
+        return view('team.show', compact('team', 'players'));
     }
 
     /**
