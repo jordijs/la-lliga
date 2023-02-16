@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    h1 {
+      @apply text-5xl font-slab drop-shadow-md underline decoration-dashed text-[#004157] text-center;
+    }
+
+    h2 {
+        @apply text-5xl font-slab drop-shadow-md underline decoration-dashed text-[#004157] text-center;
+      }
+  }
+
+
+@layer components {
+    .table-nice {
+        @apply w-full text-sm text-center text-gray-500 dark:text-gray-400 table-auto;
+    }
+
+    .thead-nice {
+        @apply text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400;
+    }
+
+    .th-nice {
+        @apply px-6 py-3;
+    }
+
+    .tr-nice {
+        @apply bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600;
+    }
+
+    .td-nice {
+        @apply px-6 py-4;
+    }
+
+    .edit-btn {
+        @apply align-middle text-center rounded p-2 text-white bg-cyan-500 hover:bg-cyan-600;
+    }
+
+    .delete-btn {
+        @apply align-middle text-center rounded p-2 text-white bg-red-500 hover:bg-red-600;
+    }
+
+    .add-btn {
+        @apply text-xl align-middle text-center rounded py-1 px-3 text-white bg-cyan-500 hover:bg-cyan-600;
+    }
+
+    .form-label {
+        @apply block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4;
+    }
+
+    .form-input {
+        @apply bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-cyan-500;
+    }
+
+    .ok-btn {
+        @apply bg-cyan-500 hover:bg-cyan-400 focus:outline-none text-white font-bold py-2 px-4 rounded;
+    }
+
+    .success {
+        @apply relative px-3 py-3 mt-4 mb-4 border rounded bg-green-200 border-green-300 text-green-800;
+    }
+}

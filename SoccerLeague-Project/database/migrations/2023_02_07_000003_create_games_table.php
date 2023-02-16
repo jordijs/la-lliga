@@ -14,10 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('games', function (Blueprint $table) {
+            $table->engine="InnoDB";
             $table->id();
-            $table->dateTime("date_time");
-            $table->tinyInteger("goals_local");
-            $table->tinyInteger("goals_visitor");
+            $table->foreignId('team_local_id')->constrained('teams');
+            $table->foreignId('team_visitor_id')->constrained('teams');
+            $table->dateTime('date_time');
+            $table->tinyInteger('goals_local');
+            $table->tinyInteger('goals_visitor');
             $table->timestamps();
         });
     }
