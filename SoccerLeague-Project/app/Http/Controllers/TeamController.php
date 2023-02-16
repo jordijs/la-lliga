@@ -48,7 +48,7 @@ class TeamController extends Controller
         $team = Team::create($request->all());
 
         return redirect()->route('teams.index')
-            ->with('success', 'Team created successfully.');
+            ->with('success', "S'ha creat el partit correctament.");
     }
 
     /**
@@ -94,7 +94,7 @@ class TeamController extends Controller
         $team->update($request->all());
 
         return redirect()->route('teams.index')
-            ->with('success', 'Team updated successfully');
+            ->with('success', "S'ha editat l'equip correctament");
     }
 
     /**
@@ -107,6 +107,6 @@ class TeamController extends Controller
         $team = Team::find($id)->delete();
 
         return redirect()->route('teams.index')
-            ->with('success', 'Team deleted successfully');
+            ->with('success', "S'ha esborrat l'equip correctament");
     }
 }

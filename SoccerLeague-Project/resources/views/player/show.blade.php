@@ -11,42 +11,45 @@
                 <div class="relative flex flex-col min-w-0 rounded break-words border bg-white border-1 border-gray-300">
                     <div class="py-3 px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900">
                         <div class="float-left">
-                            <span class="mb-3">Show Player</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-600" href="{{ route('players.index') }}"> Back</a>
+                            <span class="mb-3">Detalls del jugador</span>
                         </div>
                     </div>
 
                     <div class="flex-auto p-6">
                         
                         <div class="mb-4">
-                            <strong>Name:</strong>
+                            <strong>Nom:</strong>
                             {{ $player->name }}
                         </div>
                         <div class="mb-4">
-                            <strong>Surname1:</strong>
+                            <strong>Primer cognom:</strong>
                             {{ $player->surname1 }}
                         </div>
                         <div class="mb-4">
-                            <strong>Surname2:</strong>
+                            <strong>Segon cognom:</strong>
                             {{ $player->surname2 }}
                         </div>
                         <div class="mb-4">
-                            <strong>Role:</strong>
+                            <strong>Posició:</strong>
                             {{ $player->role }}
                         </div>
                         <div class="mb-4">
-                            <strong>Birthdate:</strong>
+                            <strong>Data de naixement:</strong>
                             {{ $player->birthdate }}
                         </div>
                         <div class="mb-4">
-                            <strong>Team Id:</strong>
-                            {{ $player->team_id }}
+                            <strong>Equip:</strong>
+                            {{ $player->team->name }}
                         </div>
 
                     </div>
+                    
                 </div>
+                <div class="float-left">
+                            <a class="edit-btn" href="{{ route('players.index') }}">Torna a Jugadors</a>
+                            <a class="edit-btn" href="{{ route('teams.index') }}">Torna a Equips</a>
+
+                        </div>
             </div>
         </div>
     </section>

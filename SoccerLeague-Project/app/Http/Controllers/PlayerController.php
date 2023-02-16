@@ -19,6 +19,7 @@ class PlayerController extends Controller
      */
     public function index()
     {
+
         $players = Player::paginate();
 
         return view('player.index', compact('players'));
@@ -52,7 +53,7 @@ class PlayerController extends Controller
         $player = Player::create($request->all());
 
         return redirect()->route('players.index')
-            ->with('success', 'Player created successfully.');
+            ->with('success', "S'ha creat el jugador correctament.");
     }
 
     /**
@@ -98,7 +99,7 @@ class PlayerController extends Controller
         $player->update($request->all());
 
         return redirect()->route('players.index')
-            ->with('success', 'Player updated successfully');
+            ->with('success', "S'ha editat el jugador correctament");
     }
 
     /**
@@ -111,6 +112,6 @@ class PlayerController extends Controller
         $player = Player::find($id)->delete();
 
         return redirect()->route('players.index')
-            ->with('success', 'Player deleted successfully');
+            ->with('success', "S'ha esborrat el jugador correctament");
     }
 }

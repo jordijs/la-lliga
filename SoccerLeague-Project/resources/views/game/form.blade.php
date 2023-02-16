@@ -1,34 +1,67 @@
-<div class="box box-info padding-1">
-    <div class="box-body">
-        
-        <div class="mb-4">
-            {{ Form::label('Equip local') }}
-            {{ Form::text('team_local_id', $game->team_local_id, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('team_local_id') ? ' is-invalid' : '')]) }}
+<form class="w-full max-w-sm">
+    <div class="md:flex md:items-center mb-6">
+        <div class="md:w-1/3">
+            <label class="form-label" for="team_local_id">
+                Equip Local
+            </label>
+        </div>
+        <div class="md:w-2/3">
+            {{ Form::select('team_local_id', $teams, $game->team_local_id, ['class' => 'form-input' . ($errors->has('team_local_id') ? ' is-invalid' : '')]) }}
             {!! $errors->first('team_local_id', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
-        <div class="mb-4">
-            {{ Form::label('Equip visitant') }}
-            {{ Form::text('team_visitor_id', $game->team_visitor_id, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('team_visitor_id') ? ' is-invalid' : '')]) }}
+    </div>
+    <div class="md:flex md:items-center mb-6">
+        <div class="md:w-1/3">
+            <label class="form-label" for="team_visitor_id">
+                Equip visitant
+            </label>
+        </div>
+        <div class="md:w-2/3">
+        {{ Form::select('team_visitor_id', $teams, $game->team_visitor_id, ['class' => 'form-input' . ($errors->has('team_local_id') ? ' is-invalid' : '')]) }}
             {!! $errors->first('team_visitor_id', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
-        <div class="mb-4">
-            {{ Form::label('Dia i hora') }}
-            {{ Form::text('date_time', $game->date_time, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('date_time') ? ' is-invalid' : '')]) }}
+    </div>
+    <div class="md:flex md:items-center mb-6">
+        <div class="md:w-1/3">
+            <label class="form-label" for="date_time">
+                Dia i hora
+            </label>
+        </div>
+        <div class="md:w-2/3">
+            {{ Form::datetimeLocal('date_time', $game->date_time, ['class' => 'form-input' . ($errors->has('date_time') ? ' is-invalid' : '')]) }}
             {!! $errors->first('date_time', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
         </div>
-        <div class="mb-4">
-            {{ Form::label('Gols Local') }}
-            {{ Form::text('goals_local', $game->goals_local, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('goals_local') ? ' is-invalid' : '')]) }}
-            {!! $errors->first('goals_local', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
+    </div>
+    <div class="md:flex md:items-center mb-6">
+        <div class="md:w-1/3">
+            <label class="form-label" for="goals_local">
+                Gols Local
+            </label>
         </div>
-        <div class="mb-4">
-            {{ Form::label('Gols visitant') }}
-            {{ Form::text('goals_visitor', $game->goals_visitor, ['class' => 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' . ($errors->has('goals_visitor') ? ' is-invalid' : '')]) }}
+        <div class="md:w-2/3">
+            {{ Form::text('goals_local', $game->goals_local, ['class' => 'form-input' . ($errors->has('goals_local') ? ' is-invalid' : '')]) }}
+            {!! $errors->first('goals_local', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
+
+        </div>
+    </div>
+    <div class="md:flex md:items-center mb-6">
+        <div class="md:w-1/3">
+            <label class="form-label" for="goals_visitor">
+                Gols visitant
+            </label>
+        </div>
+        <div class="md:w-2/3">
+            {{ Form::text('goals_visitor', $game->goals_visitor, ['class' => 'form-input' . ($errors->has('goals_visitor') ? ' is-invalid' : '')]) }}
             {!! $errors->first('goals_visitor', '<div class="hidden mt-1 text-sm text-red">:message</div>') !!}
+
         </div>
 
     </div>
-    <div class="box-footer mt20">
-        <button type="submit" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-600">Crea</button>
+    <div class="md:flex md:items-center">
+        <div class="md:w-1/3">
+        </div>
+        <div class="md:w-2/3">
+            <button type="submit" class="ok-btn">D'acord</button>
+        </div>
     </div>
-</div>
+</form>
