@@ -5,7 +5,7 @@ Jugadors
 @endsection
 
 @section('content')
-<div class="container mx-auto sm:px-4 max-w-full mx-auto sm:px-4">
+<div class="container mx-auto sm:px-4 max-w-5xl mx-auto sm:px-4">
     <div class="flex flex-wrap ">
         <div class="sm:w-full pr-4 pl-4">
             <h1>

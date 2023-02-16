@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/', App\Http\Controllers\GameController::class);
+Route::resource('/', App\Http\Controllers\TeamController::class);
 //Route::resource('teams', TeamController::class);
 
 Route::resource('players', App\Http\Controllers\PlayerController::class);
