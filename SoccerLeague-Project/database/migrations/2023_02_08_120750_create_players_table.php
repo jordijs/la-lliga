@@ -15,10 +15,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('players', function (Blueprint $table) {
+            $table->engine="InnoDB";
             $table->id();
             $table->string('name');
             $table->string('surname1')->nullable(true);
             $table->string('surname2')->nullable(true);
+            //$table->string('role')->nullable(true);
             $table->enum('role', ['goalkeeper', 'defender', 'midfielder', 'forward'])->nullable(true);
             $table->date('birthdate')->nullable(true);
             $table->foreignId('team_id')->constrained();

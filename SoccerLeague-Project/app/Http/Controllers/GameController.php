@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 /**
@@ -20,8 +21,11 @@ class GameController extends Controller
     {
         $games = Game::paginate();
 
-        return view('game.index', compact('games'))
-            ->with('i', (request()->input('page', 1) - 1) * $games->perPage());
+        $gamedatetime = Game::get('date_time');
+        //Getting information of the Teams the Games refer to
+        $teams = Team::pluck('name', 'id');
+
+        return view('game.index', compact('games', 'teams', 'gamedatetime'));
     }
 
     /**
@@ -32,7 +36,10 @@ class GameController extends Controller
     public function create()
     {
         $game = new Game();
-        return view('game.create', compact('game'));
+
+        $teams = Team::pluck('name', 'id');
+
+        return view('game.create', compact('game', 'teams'));
     }
 
     /**
@@ -48,7 +55,7 @@ class GameController extends Controller
         $game = Game::create($request->all());
 
         return redirect()->route('games.index')
-            ->with('success', 'Game created successfully.');
+            ->with('success', "S'ha creat el partit correctament.");
     }
 
     /**
@@ -74,7 +81,9 @@ class GameController extends Controller
     {
         $game = Game::find($id);
 
-        return view('game.edit', compact('game'));
+        $teams = Team::pluck('name', 'id');
+
+        return view('game.edit', compact('game', 'teams'));
     }
 
     /**
@@ -91,7 +100,7 @@ class GameController extends Controller
         $game->update($request->all());
 
         return redirect()->route('games.index')
-            ->with('success', 'Game updated successfully');
+            ->with('success', "S'ha editat el partit correctament");
     }
 
     /**
@@ -104,6 +113,6 @@ class GameController extends Controller
         $game = Game::find($id)->delete();
 
         return redirect()->route('games.index')
-            ->with('success', 'Game deleted successfully');
+            ->with('success', "S'ha esborrat el partit correctament");
     }
 }

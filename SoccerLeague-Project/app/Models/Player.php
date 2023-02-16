@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Enums\PlayerRoleEnum;
 
 /**
  * Class Player
@@ -29,7 +30,6 @@ class Player extends Model
 		'team_id' => 'required',
     ];
 
-    protected $perPage = 20;
 
     /**
      * Attributes that should be mass-assignable.
@@ -37,6 +37,12 @@ class Player extends Model
      * @var array
      */
     protected $fillable = ['name','surname1','surname2','role','birthdate','team_id'];
+
+//Enum conversion
+//    protected $casts = [
+//      'role' => PlayerRoleEnum::class
+//  ];
+
 
 
     /**

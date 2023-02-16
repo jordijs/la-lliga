@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
+use App\Models\Player;
 use Illuminate\Http\Request;
 
 /**
@@ -20,8 +21,7 @@ class TeamController extends Controller
     {
         $teams = Team::paginate();
 
-        return view('team.index', compact('teams'))
-            ->with('i', (request()->input('page', 1) - 1) * $teams->perPage());
+        return view('team.index', compact('teams'));
     }
 
     /**
@@ -48,7 +48,7 @@ class TeamController extends Controller
         $team = Team::create($request->all());
 
         return redirect()->route('teams.index')
-            ->with('success', 'Team created successfully.');
+            ->with('success', "S'ha creat el partit correctament.");
     }
 
     /**
@@ -61,7 +61,10 @@ class TeamController extends Controller
     {
         $team = Team::find($id);
 
-        return view('team.show', compact('team'));
+        //Getting information of the Players that belong to this Team
+        $players = Player::pluck('id', 'name', 'surname1', 'surname2', 'role', 'birthdate' );
+
+        return view('team.show', compact('team', 'players'));
     }
 
     /**
@@ -91,7 +94,7 @@ class TeamController extends Controller
         $team->update($request->all());
 
         return redirect()->route('teams.index')
-            ->with('success', 'Team updated successfully');
+            ->with('success', "S'ha editat l'equip correctament");
     }
 
     /**
@@ -104,6 +107,6 @@ class TeamController extends Controller
         $team = Team::find($id)->delete();
 
         return redirect()->route('teams.index')
-            ->with('success', 'Team deleted successfully');
+            ->with('success', "S'ha esborrat l'equip correctament");
     }
 }

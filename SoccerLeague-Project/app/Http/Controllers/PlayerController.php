@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Player;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 /**
@@ -18,10 +19,10 @@ class PlayerController extends Controller
      */
     public function index()
     {
+
         $players = Player::paginate();
 
-        return view('player.index', compact('players'))
-            ->with('i', (request()->input('page', 1) - 1) * $players->perPage());
+        return view('player.index', compact('players'));
     }
 
     /**
@@ -32,7 +33,11 @@ class PlayerController extends Controller
     public function create()
     {
         $player = new Player();
-        return view('player.create', compact('player'));
+
+        //Getting information of the Team this Player belongs to
+        $teams = Team::pluck('name', 'id');
+
+        return view('player.create', compact('player', 'teams'));
     }
 
     /**
@@ -48,7 +53,7 @@ class PlayerController extends Controller
         $player = Player::create($request->all());
 
         return redirect()->route('players.index')
-            ->with('success', 'Player created successfully.');
+            ->with('success', "S'ha creat el jugador correctament.");
     }
 
     /**
@@ -74,7 +79,10 @@ class PlayerController extends Controller
     {
         $player = Player::find($id);
 
-        return view('player.edit', compact('player'));
+        //Getting information of the Team this Player belongs to
+        $teams = Team::pluck('name', 'id');
+
+        return view('player.edit', compact('player', 'teams'));
     }
 
     /**
@@ -91,7 +99,7 @@ class PlayerController extends Controller
         $player->update($request->all());
 
         return redirect()->route('players.index')
-            ->with('success', 'Player updated successfully');
+            ->with('success', "S'ha editat el jugador correctament");
     }
 
     /**
@@ -104,6 +112,6 @@ class PlayerController extends Controller
         $player = Player::find($id)->delete();
 
         return redirect()->route('players.index')
-            ->with('success', 'Player deleted successfully');
+            ->with('success', "S'ha esborrat el jugador correctament");
     }
 }
