@@ -33,9 +33,6 @@
     </div>
     <div class="mb-4">
         {{ Form::label('Posició') }}
-        <?php 
-        //dd($player->role);
-        ?>
 
         <!--I'm mixing syntax to be able to make SELECT work-->
     <select class = "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('role') is-invalid @enderror" name="role">

@@ -34,8 +34,6 @@
                     </thead>
                     <tbody>
                         @foreach ($players as $player)
-                            <?php //dd($player->role);
-                            ?>
                             <tr class="tr-nice">
                                 <td class="td-nice">{{ $player->name }}</td>
                                 <td class="td-nice">{{ $player->surname1 }}</td>

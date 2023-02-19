@@ -49,11 +49,11 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
+       
         request()->validate(Player::$rules);
 
         $player = Player::create($request->all());
-        //dd($player);
+        
         return redirect()->route('players.index')
             ->with('success', "S'ha creat el jugador correctament.");
     }
@@ -100,7 +100,6 @@ class PlayerController extends Controller
 
         $player->update($request->all());
         
-        //dd($player);
 
         return redirect()->route('players.index')
             ->with('success', "S'ha editat el jugador correctament");
